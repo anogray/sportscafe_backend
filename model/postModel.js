@@ -7,6 +7,7 @@ const sportsSchema = new mongoose.Schema({
   Article_Content :{type:String, required: true},
   Article_Image_Link: {type:String, required:true},
   Article_Author :{type:String, required: true},
+  Preview_Content:{type:String, required: true}
 
 });
 

@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import config from "./config.js";
 import articleRoute from "./routes/articleRoute.js"
 import cors from "cors";
+import path from 'path';
+const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json());
@@ -12,6 +14,12 @@ app.use(cors());
 
 dotenv.config();
 app.use(morgan('tiny'));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/img',express.static(path.join(__dirname, 'public/images')));
+
+// app.use("/images", express.static(__dirname + '/images'));
+
+
 
 mongoose.connect(config.MONGODB_URL ,
 { useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
