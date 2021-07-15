@@ -54,7 +54,8 @@ router.post("/", async (req, res) => {
         .status(400)
         .json({ errorMessage: "Please fill complete fields !" });
     }
-    Article_Image_Link = `http://localhost:3002/img/${Article_Image_Link}`
+    // Article_Image_Link = `http://localhost:3002/img/${Article_Image_Link}`
+    Article_Image_Link = `https://sportscafe-test.herokuapp.com/img/${Article_Image_Link}`
     req.body.Article_Image_Link = Article_Image_Link
     let previeWArr = req.body.Article_Content.split(" ");
     previeWArr = previeWArr.slice(0,20);
@@ -102,7 +103,8 @@ router.put("/:id", async (req, res) => {
   try {
     let updatePost = req.body;
     if(updatePost.imgUpdate){
-      updatePost.Article_Image_Link = `http://localhost:3002/img/${updatePost.Article_Image_Link}`
+      // updatePost.Article_Image_Link = `http://localhost:3002/img/${updatePost.Article_Image_Link}`
+      updatePost.Article_Image_Link = `https://sportscafe-test.herokuapp.com/img/${updatePost.Article_Image_Link}`
     }
     delete updatePost.imgUpdate;
     
